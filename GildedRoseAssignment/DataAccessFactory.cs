@@ -4,10 +4,10 @@ using System.Text;
 
 namespace GildedRoseAssignment
 {
-    static class DataAccessFactory
+    public static class DataAccessFactory
     {
         public static string InputFileName { get; set; } = "testinput.txt";
-        public static string OutputFileName { get; set; } = "testouput.txt";
+        public static string OutputFileName { get; set; } = "testoutput.txt";
         public static IDataReader CreateReader()
         {
             return new FileDataReader(InputFileName);

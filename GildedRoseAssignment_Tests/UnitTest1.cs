@@ -13,7 +13,8 @@ namespace UnitTests
 
         [Test]
         public void Execute_WhenRun_WritesCorrectData()
-        {
+        {  
+            
             var transformer = MakeTransformer();
             transformer.Execute();
 
@@ -21,7 +22,7 @@ namespace UnitTests
             var dataline = reader.ReadLine();
             reader.Close();
 
-            Assert.AreEqual("Aged Brie 0 2", dataline);
+            Assert.AreEqual("AgedBrie 0 2", dataline);
             
         }
     }

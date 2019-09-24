@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GildedRoseAssignment
 {
-    interface IDataReader
+    public interface IDataReader
     {
         List<StockItem> ReadData();
     }

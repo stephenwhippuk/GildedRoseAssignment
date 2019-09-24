@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GildedRoseAssignment
 {
-    interface IDataWriter
+    public interface IDataWriter
     {
         void WriteData(List<StockItem> data);
         int getWriteCount();
