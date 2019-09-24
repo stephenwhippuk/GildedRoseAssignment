@@ -1,18 +1,28 @@
 using NUnit.Framework;
+using GildedRoseAssignment;
 
-namespace Tests
+namespace UnitTests
 {
-    public class Tests
+    public class StockQualityTransformer_Tests
     {
-        [SetUp]
-        public void Setup()
+        public StockQualityTransformer MakeTransformer()
         {
+            return new StockQualityTransformer();
         }
 
+
         [Test]
-        public void Test1()
+        public void Execute_WhenRun_WritesCorrectData()
         {
-            Assert.Pass();
+            var transformer = MakeTransformer();
+            transformer.Execute();
+
+            var reader = new System.IO.StreamReader(@"testdata.txt");
+            var dataline = reader.ReadLine();
+            reader.Close();
+
+            Assert.AreEqual("Aged Brie 0 2", dataline);
+            
         }
     }
 }
