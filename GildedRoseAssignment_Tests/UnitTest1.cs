@@ -17,7 +17,7 @@ namespace UnitTests
             var transformer = MakeTransformer();
             transformer.Execute();
 
-            var reader = new System.IO.StreamReader(@"testdata.txt");
+            var reader = new System.IO.StreamReader(@"testoutput.txt");
             var dataline = reader.ReadLine();
             reader.Close();
 

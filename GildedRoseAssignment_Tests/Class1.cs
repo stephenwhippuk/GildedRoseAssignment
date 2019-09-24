@@ -26,6 +26,7 @@ namespace UnitTests
         [TestCase("test 1")]
         [TestCase("test a 1")]
         [TestCase("test 1 a")]
+        [TestCase("test 1 1 s")]
         public void FromRecord_WithInvalidInput_Throws(string entry)
         {
             var item = new StockItem();
