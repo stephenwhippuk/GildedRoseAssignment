@@ -18,7 +18,9 @@ namespace GildedRoseAssignment
             }
             set
             {
-                theValue = Constrain(value);
+                // not constraining until requested (leaving duplication) as specified output file, erroenously?, 
+                // has an output requiring it be greater than 50 to start 
+                theValue = value;
             }
 
         }

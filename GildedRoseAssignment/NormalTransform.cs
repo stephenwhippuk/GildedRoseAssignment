@@ -20,7 +20,7 @@ namespace GildedRoseAssignment
                 qualitymod *= 2;
             }
             item.SellIn -= 1;
-            item.Quality.Value -= qualitymod;
+            item.Quality.Value = StockQuality.Constrain(item.Quality.Value - qualitymod);
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 using NUnit.Framework;
 using GildedRoseAssignment;
 
-namespace GildedRoseAssignment_Tests
+namespace UnitTests
 {
     [TestFixture]
     class TransformFactoryTests
@@ -84,7 +84,20 @@ namespace GildedRoseAssignment_Tests
             Assert.AreEqual("GildedRoseAssignment.CustomBackStagePassTransform", transform.GetType().ToString());
         }
 
+        [Test]
+        public void ForInvalidInput_ReturnsInvalidInputTransform()
+        {
+            var item = new StockItem()
+            {
+                Name = "INVALID ITEM",
+                SellIn = 10,
+                Quality = new StockQuality(10)
+            };
 
+            var transform = StockItemTransformFactory.CreateTransform(item);
+
+            Assert.AreEqual("GildedRoseAssignment.InvalidItemTransform", transform.GetType().ToString());
+        }
 
     }
 }

@@ -123,5 +123,24 @@ namespace UnitTests
 
             Assert.AreEqual(item.Quality.Value, 0);
         }
+
+        [Test]
+        public void InvalidInputTransform_SetsValidToFalse()
+        {
+            var item = new StockItem()
+            {
+                Name = "INVALID ITEM",
+                SellIn = 10,
+                Quality = new StockQuality(10)
+            };
+
+            Assert.IsTrue(item.IsValid);
+
+            var transform = new InvalidItemTransform();
+            transform.Transform(item);
+
+            Assert.IsFalse(item.IsValid);
+
+        }
     }
 }

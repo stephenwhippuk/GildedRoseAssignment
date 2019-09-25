@@ -11,19 +11,19 @@ namespace GildedRoseAssignment
             
             if (item.SellIn < 0)
             {
-                item.Quality.Value = 0;
+                item.Quality.Value = StockQuality.MinValue;
             }
             else if (item.SellIn > 5 && item.SellIn <= 10)
             {
-                item.Quality.Value += 2;
+                item.Quality.Value = StockQuality.Constrain(item.Quality.Value + 2);
             }
             else if (item.SellIn >= 0 && item.SellIn <= 5 )
             {
-                item.Quality.Value += 3;
+                item.Quality.Value = StockQuality.Constrain(item.Quality.Value + 3);
             }
             else
             {
-                item.Quality.Value += 1;
+                item.Quality.Value = StockQuality.Constrain(item.Quality.Value + 1);
             }
             item.SellIn--;
         }

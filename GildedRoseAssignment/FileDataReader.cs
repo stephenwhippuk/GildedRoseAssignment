@@ -21,7 +21,12 @@ namespace GildedRoseAssignment
                 {
                     var item = new StockItem();
                     item.FromRecord(reader.ReadLine());
-                    data.Add(item);
+
+                    // only add if a valid record, thus making system datafile error tolerant
+                    if (item.IsValid)
+                    {
+                        data.Add(item);
+                    }
                 }
             }
 

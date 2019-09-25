@@ -19,6 +19,7 @@ namespace GildedRoseAssignment
                 writeCount = 0;
                 foreach (var x in data)
                 {
+                    // write a line for the record unless it has been invalidated by the transforms
                     if (x.IsValid)
                     {
                         writer.WriteLine(x.ToRecord());

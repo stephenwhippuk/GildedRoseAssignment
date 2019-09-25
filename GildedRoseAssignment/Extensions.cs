@@ -6,69 +6,61 @@ namespace GildedRoseAssignment
 {
     public static class Extensions
     {
-        public static void FromRecord(this StockItem item, string s)
+        public static void FromRecord(this StockItem item, string input)
         {
-            string name = "", sellIn ="", quality="";
-
-            string[] fields = s.Split('"');
-
-            if (fields.Length == 1) // there are no quotes
+            /*
+                as there are no quotes, assume string is a number of words to go in name followed by sellin followed by quality
+                to be parsed. If there is an error in the format of string, it invalidates the StockItem
+             */
+            input.Trim();
+            if (input.Length== 0)
             {
-                fields = s.Split(' ');
-                if (fields.Length != 3)
-                {
-                    throw new InvalidOperationException("StockItems require 3 fields");
-                }
-
-                name = fields[0];
-                sellIn = fields[1];
-                quality = fields[2];
+                // empty line and thus we cannot initialize data for transform
+                item.IsValid = false;
+                return;
             }
-            else if (fields.Length == 3) // name is surrounded by quotes
+            
+            string[] words = input.Split(' ');
+            // string is incomplete record
+            if (words.Length < 3) 
             {
-                // the first string is empty
-                name = fields[1];
-
-                fields = fields[2].Split(' ');
-                // the first string is empty
-                sellIn = fields[1];
-                quality = fields[2];
+                item.IsValid = false;
+                return;
             }
-            else // something else wrong in format
-            {
-                throw new InvalidOperationException("The data format of record is incorrect: " + s);
-            }
-
-            item.Name = name;
 
             int output;
-            if (!int.TryParse(sellIn, out output))
+            if(!int.TryParse(words[words.Length-1], out output))
             {
-                throw new InvalidOperationException("argument 1 must be an integer");
+                item.IsValid = false;
+                return;
             }
-            item.SellIn = output;
+            else
+            {
+                item.Quality = new StockQuality(output);
+            }
 
-            if (!int.TryParse(quality, out output))
+            if (!int.TryParse(words[words.Length - 2], out output))
             {
-                throw new InvalidOperationException("argument 2 must be an integer");
+                item.IsValid = false;
+                return;
             }
-            item.Quality = new StockQuality(output);
+            else
+            {
+                item.SellIn = output;
+            }
+            string nameString = "";
+            for(int i = 0; i < words.Length-3; i++)
+            {
+                nameString += words[i] + ' ';
+            }
+            nameString += words[words.Length - 3];
+
+            item.Name = nameString;
         }
 
         public static string ToRecord(this StockItem item)
         {
-            string result = "";
-            string[] nameWords = item.Name.Split(' ');
-            if (nameWords.Length > 1)
-            {
-                result = '\"' + item.Name + '\"';
-            }
-            else
-            {
-                result = item.Name;
-            }
-
-            result += ' ' + item.SellIn.ToString() + ' ' + item.Quality.Value.ToString();
+            string result = item.Name += ' ' + item.SellIn.ToString() + ' ' + item.Quality.Value.ToString();
             return result;
         }
     }
