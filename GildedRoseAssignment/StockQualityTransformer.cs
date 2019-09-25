@@ -40,10 +40,10 @@ namespace GildedRoseAssignment
 
         private void PerformTransform()
         {
-            foreach (var x in data)
+            foreach (var item in data)
             {
-                
-
+                var transform = StockItemTransformFactory.CreateTransform(item);
+                transform.Transform(item);
             }
         }
 
