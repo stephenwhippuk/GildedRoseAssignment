@@ -11,6 +11,8 @@ namespace GildedRoseAssignment
         public int ReadCount { get; set; }
         public int WriteCount { get; set; }
 
+        public bool Success { get; set; }
+
         public DailyStockUpdater()
         {
             data = new List<StockItem>();
@@ -24,11 +26,13 @@ namespace GildedRoseAssignment
                 ReadData();
                 PerformUpdates();
                 WriteData();
+                Success = true;
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-            }
+                ErrorLogger.LogError(e.Message, 0);
+                Success = false;
+            }   
         }
 
         private void ReadData()
