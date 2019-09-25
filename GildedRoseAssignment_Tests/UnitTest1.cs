@@ -22,7 +22,7 @@ namespace UnitTests
             var dataline = reader.ReadLine();
             reader.Close();
 
-            Assert.AreEqual("\"Aged Brie\" 0 2", dataline);
+            Assert.AreEqual("\"Aged Brie\" -1 3", dataline);
             
         }
     }

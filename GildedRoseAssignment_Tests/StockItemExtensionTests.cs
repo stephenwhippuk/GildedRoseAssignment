@@ -26,7 +26,7 @@ namespace UnitTests
                 Assert.AreEqual("test", item.Name);
             }
             Assert.AreEqual(1, item.SellIn);
-            Assert.AreEqual(1, item.Quality);
+            Assert.AreEqual(1, item.Quality.Value);
         }
 
         [TestCase("")]

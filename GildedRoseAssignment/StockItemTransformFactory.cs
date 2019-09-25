@@ -18,13 +18,17 @@ namespace GildedRoseAssignment
             {
                 transform = new NormalTransform(-1);
             }
-            else if (item.Name.Equals("Conjoured"))
+            else if (item.Name.Equals("Conjured"))
             {
                 transform = new NormalTransform(2);
             }
-            else if (item.Name.Equals("Backstage Pass"))
+            else if (item.Name.Equals("Backstage passes"))
             {
                 transform = new CustomBackStagePassTransform();
+            }
+            else if (item.Name.Equals("INVALID ITEM"))
+            {
+                transform = new InvalidItemTransform();
             }
             else
             {

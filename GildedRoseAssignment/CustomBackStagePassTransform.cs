@@ -4,11 +4,11 @@ using System.Text;
 
 namespace GildedRoseAssignment
 {
-    class CustomBackStagePassTransform : IStockItemTransform
+    public class CustomBackStagePassTransform : IStockItemTransform
     {
         public void Transform(StockItem item)
         {
-            item.SellIn--;
+            
             if (item.SellIn < 0)
             {
                 item.Quality.Value = 0;
@@ -25,7 +25,7 @@ namespace GildedRoseAssignment
             {
                 item.Quality.Value += 1;
             }
-
+            item.SellIn--;
         }
     }
 }

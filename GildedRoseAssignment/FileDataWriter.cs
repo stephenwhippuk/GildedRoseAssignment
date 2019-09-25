@@ -19,7 +19,14 @@ namespace GildedRoseAssignment
                 writeCount = 0;
                 foreach (var x in data)
                 {
-                    writer.WriteLine(x.ToRecord());
+                    if (x.IsValid)
+                    {
+                        writer.WriteLine(x.ToRecord());
+                    }
+                    else
+                    {
+                        writer.WriteLine("NO SUCH ITEM");
+                    }
                     writeCount++;
                 }
             }

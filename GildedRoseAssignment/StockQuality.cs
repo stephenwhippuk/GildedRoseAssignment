@@ -8,15 +8,17 @@ namespace GildedRoseAssignment
     {
         public static int MaxValue { get; set; } = 50;
         public static int MinValue { get; set; } = 0;
+
+        private int theValue;
         public int Value
         {
             get
             {
-                return Value;
+                return theValue;
             }
             set
             {
-                Value = Constrain(value);
+                theValue = Constrain(value);
             }
 
         }

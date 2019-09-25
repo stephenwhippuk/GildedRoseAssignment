@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GildedRoseAssignment
 {
-    class NormalTransform : IStockItemTransform
+    public class NormalTransform : IStockItemTransform
     {
         private int theRate = 1;
         public NormalTransform(int rate)
