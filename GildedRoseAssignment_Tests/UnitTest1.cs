@@ -5,9 +5,9 @@ namespace UnitTests
 {
     public class StockQualityTransformer_Tests
     {
-        public StockQualityTransformer MakeTransformer()
+        public DailyStockUpdater MakeTransformer()
         {
-            return new StockQualityTransformer();
+            return new DailyStockUpdater();
         }
 
 

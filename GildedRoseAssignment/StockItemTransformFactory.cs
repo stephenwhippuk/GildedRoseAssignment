@@ -8,7 +8,29 @@ namespace GildedRoseAssignment
     {
         public static IStockItemTransform CreateTransform(StockItem item)
         {
-            return new EmptyTransform();
+            IStockItemTransform transform;
+
+            if (item.Name.Equals("Sulfuras"))
+            {
+                transform = new EmptyTransform();
+            }
+            else if (item.Name.Equals("Aged Brie"))
+            {
+                transform = new NormalTransform(-1);
+            }
+            else if (item.Name.Equals("Conjoured"))
+            {
+                transform = new NormalTransform(2);
+            }
+            else if (item.Name.Equals("Backstage Pass"))
+            {
+                transform = new CustomBackStagePassTransform();
+            }
+            else
+            {
+                transform = new NormalTransform(1);
+            }
+            return transform;
         }
     }
 }

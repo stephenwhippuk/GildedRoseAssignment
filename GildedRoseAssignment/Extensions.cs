@@ -52,7 +52,7 @@ namespace GildedRoseAssignment
             {
                 throw new InvalidOperationException("argument 2 must be an integer");
             }
-            item.Quality = output;
+            item.Quality.Value = StockQuality.Constrain(output);
         }
 
         public static string ToRecord(this StockItem item)

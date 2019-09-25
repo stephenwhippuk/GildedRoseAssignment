@@ -4,14 +4,14 @@ using System.Collections.Generic;
 namespace GildedRoseAssignment
 {
 
-    public class StockQualityTransformer
+    public class DailyStockUpdater
     {
         private List<StockItem> data;
 
         public int ReadCount { get; set; }
         public int WriteCount { get; set; }
 
-        public StockQualityTransformer()
+        public DailyStockUpdater()
         {
             data = new List<StockItem>();
             
@@ -22,7 +22,7 @@ namespace GildedRoseAssignment
             try
             {
                 ReadData();
-                PerformTransform();
+                PerformUpdates();
                 WriteData();
             }
             catch (Exception e)
@@ -38,7 +38,7 @@ namespace GildedRoseAssignment
             ReadCount = data.Count;
         }
 
-        private void PerformTransform()
+        private void PerformUpdates()
         {
             foreach (var item in data)
             {

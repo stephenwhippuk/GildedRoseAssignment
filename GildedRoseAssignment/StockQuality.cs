@@ -16,16 +16,32 @@ namespace GildedRoseAssignment
             }
             set
             {
-                if (value >= MinValue && value <= MaxValue)
-                {
-                    Value = value;
-                }
-                else
-                {
-                    throw new InvalidOperationException("Stock Quality must be between 0 and 50");
-                }
+                Value = Constrain(value);
             }
 
+        }
+
+        public static bool IsValid(int val)
+        {
+            if (val <= MinValue || val >= MaxValue)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public static int Constrain(int val)
+        {
+            int result = val;
+            if (val > MaxValue)
+            {
+                result = MaxValue;
+            }
+            if (val < MinValue)
+            {
+                result = MinValue;
+            }
+            return result;
         }
 
         public StockQuality()
@@ -38,7 +54,5 @@ namespace GildedRoseAssignment
             Value = val;
         }
 
-        public static implicit operator StockQuality(int val) => new StockQuality(val);
-        public static implicit operator int(StockQuality s) => s.Value;
     }
 }

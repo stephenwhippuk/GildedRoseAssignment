@@ -15,7 +15,7 @@ namespace UnitTests
             {
                 Name = "Factory Test",
                 SellIn = 1,
-                Quality = 1
+                Quality = new StockQuality(1)
             };
             DataAccessFactory.TestItem = item;
 
@@ -32,7 +32,7 @@ namespace UnitTests
             {
                 Name = "Factory Test",
                 SellIn = 1,
-                Quality = 1
+                Quality = new StockQuality(1)
             };
             DataAccessFactory.TestItem = item;
 
@@ -63,12 +63,12 @@ namespace UnitTests
             {
                 Name = "Factory Test",
                 SellIn = 1,
-                Quality = 1
+                Quality = new StockQuality(1)
             };
             DataAccessFactory.TestItem = item;
 
-            StockQualityTransformer transformer = new StockQualityTransformer();
-            transformer.Execute();
+            var updater = new DailyStockUpdater();
+            updater.Execute();
 
             Assert.AreSame(DataAccessFactory.TestItem, item);
             
