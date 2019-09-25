@@ -8,21 +8,47 @@ namespace GildedRoseAssignment
     {
         public static void FromRecord(this StockItem item, string s)
         {
-            string[] fields = s.Split(' ');
-            if (fields.Length != 3)
+            string name = "", sellIn ="", quality="";
+
+            string[] fields = s.Split('"');
+
+            if (fields.Length == 1) // there are no quotes
             {
-                throw new InvalidOperationException("StockItms equire 3 fields");
+                fields = s.Split(' ');
+                if (fields.Length != 3)
+                {
+                    throw new InvalidOperationException("StockItems require 3 fields");
+                }
+
+                name = fields[0];
+                sellIn = fields[1];
+                quality = fields[2];
             }
-            item.Name = fields[0];
+            else if (fields.Length == 3) // name is surrounded by quotes
+            {
+                // the first string is empty
+                name = fields[1];
+
+                fields = fields[2].Split(' ');
+                // the first string is empty
+                sellIn = fields[1];
+                quality = fields[2];
+            }
+            else // something else wrong in format
+            {
+                throw new InvalidOperationException("The data format of record is incorrect: " + s);
+            }
+
+            item.Name = name;
 
             int output;
-            if (!int.TryParse(fields[1], out output))
+            if (!int.TryParse(sellIn, out output))
             {
                 throw new InvalidOperationException("argument 1 must be an integer");
             }
             item.SellIn = output;
 
-            if (!int.TryParse(fields[2], out output))
+            if (!int.TryParse(quality, out output))
             {
                 throw new InvalidOperationException("argument 2 must be an integer");
             }
@@ -31,7 +57,18 @@ namespace GildedRoseAssignment
 
         public static string ToRecord(this StockItem item)
         {
-            string result = item.Name + ' ' + item.SellIn.ToString() + ' ' + item.Quality.ToString();
+            string result = "";
+            string[] nameWords = item.Name.Split(' ');
+            if (nameWords.Length > 1)
+            {
+                result = '\"' + item.Name + '\"';
+            }
+            else
+            {
+                result = item.Name;
+            }
+
+            result += ' ' + item.SellIn.ToString() + ' ' + item.Quality.ToString();
             return result;
         }
     }
