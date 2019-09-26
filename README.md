@@ -32,7 +32,7 @@ seperately. The command line arguments can be specified As application arguments
 
 The test input as specified by the assignment specification can also be viewed with a complete end to end test within **GildedRoseAssignment_Tests**. This creates the 
 input file as per the specificaton, Executes the API and then tests each line in the output is correct.  The test is named *Execute_WhenRun_WritesCorrectData* and can 
-be found within the DailyStockUpdaterTests class
+be found within the *DailyStockUpdaterTests* class
 
 ### About the API
 
