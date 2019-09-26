@@ -26,11 +26,10 @@ The test is named Test Name:	Execute_WhenRun_WritesCorrectData and can be found 
 
 ---- About the API
 
-The project has been designed around SOLID Principles and attempts to maijntain as clean a structure as possible. The Main class for te PAI which is 
-all an extrenal client needs to interact with is DailyStockUpdater. This provides a single entry poiint called EXecute that runs the whole
+The project has been designed around SOLID Principles and attempts to maintain as clean a structure as possible. The Main class for the  API, (which is all an external client needs to interact with), is DailyStockUpdater. This provides a single entry point called Execute that runs the whole
 process. 
 
-Thge Process consists of 3 distinct steps Read Data, Tranform Data and Write Data. The classes reponsible for the actual function are injected into
+Thge Process consists of 3 distinct steps Read Data, Perform Updates and Write Data. The classes reponsible for the actual function are injected into
 DailyStockUpdater from 2 factorys and the only dependencies are upon the interfaces IDataReader, IDataWriter and IStockItemTransform. 
 DataAcessFactory for stream objects and StockTransformFactory for specific transforms depending on the name of the item. This means that 
 DailyStockUpdater, simply has to read a list of STockItems, iterate over requesting an appropriate transform for each and applying it then
