@@ -44,12 +44,12 @@ involved in this test are hidden behind the IDataReader and IDataWriter, maintai
 Of particular note, StockItem is the basic datastructure for the system and is maintained as a pure datastructure containing 
 [string Name,
 int Sellin,
-STockQuality quality]
+StockQuality quality]
 
 StockQuality wraps a single integer and provides a couple of static methods to test and apply a constraint upon its value when requested
 The values of these constraints are provided as static properties that have a defualt value but for flexibility could be configured by a client
 
-The reading and writing of data into StockItems from strings is provided by Extension Methods in Extensions.cs. This keeps StockItem a pure datastructure whilst syntactiaclly allowing these obvious operations to be provided and give a further area of flexibility. The format annd contents of the strings are processed using Regular Expressions. If the Format is wrong the record is noted in the read count and logged as an error but is not added into the list and thus will be ommited from further processing.   
+The reading and writing of data into StockItems from strings is provided by Extension Methods in Extensions.cs. This keeps StockItem a pure datastructure whilst syntactically allowing these obvious operations to be provided and give a further area of flexibility. The format and contents of the strings are processed using Regular Expressions. If the Format is wrong the record is noted in the read count and logged as an error but is not added into the list and thus will be ommited from further processing.   
 
 finally the DalyStockUpdater maintains a count for records read and write count for record written. 
 
