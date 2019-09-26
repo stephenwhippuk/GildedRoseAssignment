@@ -16,9 +16,13 @@ The Application can run with 3 commandline configurations
 
     > GildedRoseApplication  
 will run the application using thge file testinput.txt and produce testoutput.txt into the build folder
+
     > GildedRoseApplication "inputfile" 
+    
 will run application using a custom input fole as the user procides and write to testoutput.txt in the build folder
+
     > GildedRoseAPplication "inputfile" "outputfile" 
+    
 will run the application using input and output files at the location the user desires.
 
 For viewing the debug envioronment with VS itself is easiest, this way there is no need to setup the runtimes for .Net Core on your system 
