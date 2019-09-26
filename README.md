@@ -45,11 +45,11 @@ As in a real system the data is probably not going to be issolated but rather be
 involved in this test are hidden behind the IDataReader and IDataWriter, maintaining proper SOLID design.
 
 Of particular note, StockItem is the basic datastructure for the system and is maintained as a pure datastructure containing 
-### Code Block
-[bool isValid, 
-string Name,
-int Sellin,
-StockQuality quality]
+
+  [bool isValid, 
+  string Name,
+  int Sellin,
+  StockQuality quality]
 
 StockQuality wraps a single integer and provides a couple of static methods to test and apply a constraint upon its value when requested.
 The values of these constraints are provided as static properties that have a default value but for flexibility could be configured by a client
