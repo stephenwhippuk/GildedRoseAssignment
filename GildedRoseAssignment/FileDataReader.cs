@@ -7,13 +7,21 @@ namespace GildedRoseAssignment
     public class FileDataReader : IDataReader
     {
         private string dataFileName;
+
+        private int readCount;
         public FileDataReader(string fname)
         {
             dataFileName = fname;
         }
 
+        public int getReadCount()
+        {
+            return readCount;
+        }
+
         public List<StockItem> ReadData()
         {
+            readCount = 0;
             var data = new List<StockItem>();
             using (var reader = new System.IO.StreamReader(dataFileName))
             {
@@ -27,6 +35,7 @@ namespace GildedRoseAssignment
                     {
                         data.Add(item);
                     }
+                    readCount++;
                 }
             }
 

@@ -39,7 +39,7 @@ namespace GildedRoseAssignment
         {
             IDataReader reader = DataAccessFactory.CreateReader();
             data = reader.ReadData();
-            ReadCount = data.Count;
+            ReadCount = reader.getReadCount();
         }
 
         private void PerformUpdates()

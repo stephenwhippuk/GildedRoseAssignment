@@ -12,6 +12,11 @@ namespace GildedRoseAssignment
             theItem = item;
         }
 
+        public int getReadCount()
+        {
+            return 1;
+        }
+
         public List<StockItem> ReadData()
         {
             var data = new List<StockItem>();

@@ -7,5 +7,6 @@ namespace GildedRoseAssignment
     public interface IDataReader
     {
         List<StockItem> ReadData();
+        int getReadCount();
     }
 }
