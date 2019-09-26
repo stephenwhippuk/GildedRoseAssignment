@@ -4,7 +4,7 @@ This project was completed as part of a Technoical Assessment. And provides an i
 
 It is Provided as Visual Studio Solution (VS2019) containing 3 projects
 
-* GildedRoseApplication: An application configured for use with .Net Core 2.2
+* **GildedRoseApplication**: An application configured for use with .Net Core 2.2
 * GildedRoseAssignment: A class library providing the API to solve the problem configued for .Net Core 2.2
 * GuildedRoseAssignment_Tests: A Test Project using NUnit 3.11. 
 
@@ -14,7 +14,7 @@ Usage:
 
 The Application can run with 3 commandline configurations
 
-1) GildedRoseApplication: will run the application using thge file testinput.txt and produce testoutput.txt into the build folder
+1) GildedRoseApplication : will run the application using thge file testinput.txt and produce testoutput.txt into the build folder
 2) GildedRoseApplication "inputfile" : will run application using a custom input fole as the user procides and write to testoutput.txt in the build folder
 3) GildedRoseAPplication "inputfile" "outputfile" : will run the application using input and output files at the location the user desires.
 
