@@ -23,7 +23,7 @@ namespace GildedRoseApplication
                     }
                     else
                     {
-                        Console.WriteLine("Invalid Command Line Usage: GuildedRoseApplication <inputpath> <outpath> ");
+                        throw new Exception("Invalid Command Line Usage: GuildedRoseApplication <inputpath> <outpath> ");
                     }
                 }
 
@@ -58,7 +58,9 @@ namespace GildedRoseApplication
             }
             catch(Exception e)
             {
-                Console.WriteLine(e.Message);
+                // for testing purposes this will simply write to console but in theory the error should be logged along with others and reported in the 
+                // correct way for such
+                ErrorLogger.LogError(e.Message);
             }
         }
 
