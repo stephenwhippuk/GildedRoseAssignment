@@ -15,14 +15,13 @@ Usage:
 The Application can run with 3 commandline configurations
 
 1) GildedRoseApplication: will run the application using thge file testinput.txt and produce testoutput.txt into the build folder
-2) GildedRoseAPplication "inputfile" will run application using a custom input fole as the user procides and write to testoutput.txt in the build folder
-3) GildedRoseAPplication "inputfile" "outputfile" will run the application using input and output files at the location the user desires.
+2) GildedRoseAPplication "inputfile" : will run application using a custom input fole as the user procides and write to testoutput.txt in the build folder
+3) GildedRoseAPplication "inputfile" "outputfile" : will run the application using input and output files at the location the user desires.
 
 For viewing the debug envioronment with VS itself is easiest, this way there is no need to setup the runtimes for .Net Core on your system 
 seperately. The command line arguments can be specified As application arguments within the debug tab of the project properties
 
-The test input as specified by the assignment specification can also be viewed with a complee end to end test within GildedRoseAssignement_Tests. 
-The test is named Test Name:	Execute_WhenRun_WritesCorrectData and can be found within the DailyStockUpdaterTests class
+The test input as specified by the assignment specification can also be viewed with a complte end to end test within GildedRoseAssignement_Tests. This creates the input file as per the specificaton, Executes the API and then tests each line in the output is correct.  The test is named Test Name:	Execute_WhenRun_WritesCorrectData and can be found within the DailyStockUpdaterTests class
 
 ---- About the API
 
