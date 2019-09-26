@@ -38,7 +38,7 @@ be found within the *DailyStockUpdaterTests* class
 
 The project has been designed around SOLID Principles and attempts to maintain as clean a structure as possible. The Main class for the  API, (which is all an 
 external client needs to interact with), is *DailyStockUpdater*. This provides a single entry point called *Execute* that runs the whole process. 
-
+#### The Main Process
 The Process consists of 3 distinct steps: Read Data, Perform Updates and Write Data. The classes reponsible for the actual function are injected into
 *DailyStockUpdater* from 2 factorys and the only dependencies are upon the interfaces: *IDataReader*, *IDataWriter* and *IStockItemTransform*. 
 *DataAcessFactory* for stream objects and *StockTransformFactory* for specific transforms depending on the name of the item. This means that 
