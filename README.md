@@ -6,11 +6,11 @@ It is Provided as Visual Studio Solution (VS2019) containing 3 projects
 
 * **GildedRoseApplication**: An application configured for use with .Net Core 2.2
 * **GildedRoseAssignment**: A class library providing the API to solve the problem configued for .Net Core 2.2
-* GuildedRoseAssignment_Tests: A Test Project using NUnit 3.11. 
+* **GuildedRoseAssignment_Tests**: A Test Project using NUnit 3.11. 
 
 These tests were run by the default test runner provided by VS2019
 
-##Usage:
+### Usage:
 
 The Application can run with 3 commandline configurations
 
@@ -21,13 +21,13 @@ The Application can run with 3 commandline configurations
 For viewing the debug envioronment with VS itself is easiest, this way there is no need to setup the runtimes for .Net Core on your system 
 seperately. The command line arguments can be specified As application arguments within the debug tab of the project properties
 
-##Using the Provided API without the Console Application Wrapper 
+### Using the Provided API without the Console Application Wrapper 
 
 The test input as specified by the assignment specification can also be viewed with a complete end to end test within GildedRoseAssignment_Tests. This creates the 
 input file as per the specificaton, Executes the API and then tests each line in the output is correct.  The test is named Execute_WhenRun_WritesCorrectData and can 
 be found within the DailyStockUpdaterTests class
 
----- About the API
+### About the API
 
 The project has been designed around SOLID Principles and attempts to maintain as clean a structure as possible. The Main class for the  API, (which is all an 
 external client needs to interact with), is DailyStockUpdater. This provides a single entry point called Execute that runs the whole process. 
@@ -45,6 +45,7 @@ As in a real system the data is probably not going to be issolated but rather be
 involved in this test are hidden behind the IDataReader and IDataWriter, maintaining proper SOLID design.
 
 Of particular note, StockItem is the basic datastructure for the system and is maintained as a pure datastructure containing 
+### Code Block
 [bool isValid, 
 string Name,
 int Sellin,
