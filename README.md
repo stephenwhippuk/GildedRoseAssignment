@@ -23,12 +23,14 @@ seperately. The command line arguments can be specified As application arguments
 
 --- Using the Provided API without the Console Application Wrapper 
 
-The test input as specified by the assignment specification can also be viewed with a complete end to end test within GildedRoseAssignment_Tests. This creates the input file as per the specificaton, Executes the API and then tests each line in the output is correct.  The test is named Execute_WhenRun_WritesCorrectData and can be found within the DailyStockUpdaterTests class
+The test input as specified by the assignment specification can also be viewed with a complete end to end test within GildedRoseAssignment_Tests. This creates the 
+input file as per the specificaton, Executes the API and then tests each line in the output is correct.  The test is named Execute_WhenRun_WritesCorrectData and can 
+be found within the DailyStockUpdaterTests class
 
 ---- About the API
 
-The project has been designed around SOLID Principles and attempts to maintain as clean a structure as possible. The Main class for the  API, (which is all an external client needs to interact with), is DailyStockUpdater. This provides a single entry point called Execute that runs the whole
-process. 
+The project has been designed around SOLID Principles and attempts to maintain as clean a structure as possible. The Main class for the  API, (which is all an 
+external client needs to interact with), is DailyStockUpdater. This provides a single entry point called Execute that runs the whole process. 
 
 The Process consists of 3 distinct steps: Read Data, Perform Updates and Write Data. The classes reponsible for the actual function are injected into
 DailyStockUpdater from 2 factorys and the only dependencies are upon the interfaces: IDataReader, IDataWriter and IStockItemTransform. 
@@ -51,8 +53,11 @@ StockQuality quality]
 StockQuality wraps a single integer and provides a couple of static methods to test and apply a constraint upon its value when requested.
 The values of these constraints are provided as static properties that have a default value but for flexibility could be configured by a client
 
-The reading and writing of data into StockItems from strings is provided by Extension Methods in Extensions.cs. This keeps StockItem a pure datastructure whilst syntactically allowing these obvious operations to be provided and give a further area of flexibility. The format and contents of the strings are processed using Regular Expressions. If the Format is wrong the record is noted in the read count and logged as an error but is not added into the list and thus will be omited from further processing.   
+The reading and writing of data into StockItems from strings is provided by Extension Methods in Extensions.cs. This keeps StockItem a pure datastructure whilst 
+syntactically allowing these obvious operations to be provided and give a further area of flexibility. The format and contents of the strings are processed using 
+Regular Expressions. If the Format is wrong the record is noted in the read count and logged as an error but is not added into the list and thus will be omited from 
+further processing.   
 
-finally the DailyStockUpdater maintains a count for records read and write count for record written. 
+The DailyStockUpdater maintains a count for records read and write count for record written. 
 
 
