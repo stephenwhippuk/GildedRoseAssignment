@@ -5,7 +5,7 @@ This project was completed as part of a Technoical Assessment. And provides an i
 It is Provided as Visual Studio Solution (VS2019) containing 3 projects
 
 * **GildedRoseApplication**: An application configured for use with .Net Core 2.2
-* **GildedRoseAssignment**: A class library providing the API to solve the problem configued for .Net Core 2.2
+* **GildedRoseAssignment**: A class library providing the API to solve the problem configured for .Net Core 2.2
 * **GuildedRoseAssignment_Tests**: A Test Project using NUnit 3.11. 
 
 These tests were run by the default test runner provided by VS2019
