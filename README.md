@@ -21,7 +21,7 @@ The Application can run with 3 commandline configurations
 For viewing the debug envioronment with VS itself is easiest, this way there is no need to setup the runtimes for .Net Core on your system 
 seperately. The command line arguments can be specified As application arguments within the debug tab of the project properties
 
-The test input as specified by the assignment specification can also be viewed with a complte end to end test within GildedRoseAssignement_Tests. This creates the input file as per the specificaton, Executes the API and then tests each line in the output is correct.  The test is named Test Name:	Execute_WhenRun_WritesCorrectData and can be found within the DailyStockUpdaterTests class
+The test input as specified by the assignment specification can also be viewed with a complte end to end test within GildedRoseAssignement_Tests. This creates the input file as per the specificaton, Executes the API and then tests each line in the output is correct.  The test is named Execute_WhenRun_WritesCorrectData and can be found within the DailyStockUpdaterTests class
 
 ---- About the API
 
