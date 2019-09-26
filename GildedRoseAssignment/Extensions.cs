@@ -1,61 +1,73 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Text.RegularExpressions;
 namespace GildedRoseAssignment
 {
     public static class Extensions
     {
+
         public static void FromRecord(this StockItem item, string input)
         {
-            /*
-                as there are no quotes, assume string is a number of words to go in name followed by sellin followed by quality
-                to be parsed. If there is an error in the format of string, it invalidates the StockItem
-             */
-            input.Trim();
-            if (input.Length== 0)
-            {
-                // empty line and thus we cannot initialize data for transform
-                item.IsValid = false;
-                return;
-            }
-            
-            string[] words = input.Split(' ');
-            // string is incomplete record
-            if (words.Length < 3) 
-            {
-                item.IsValid = false;
-                return;
-            }
+            input = input.Trim();
 
-            int output;
-            if(!int.TryParse(words[words.Length-1], out output))
+            if (!TestFormat(input))
             {
                 item.IsValid = false;
-                return;
             }
             else
             {
-                item.Quality = new StockQuality(output);
+                item.Name = ExtractName(input);
+                item.SellIn = ExtractSellin(input);
+                item.Quality = new StockQuality( ExtractQuality(input) );
             }
+        }
+        private static bool TestFormat(string input)
+        {
+            // try with regular expression
+            string pattern = @"^([a-zA-Z]+\s)+([+-]?\d+)\s(\d+)$";
+            var matcher = new Regex(pattern);
 
-            if (!int.TryParse(words[words.Length - 2], out output))
+            if (!matcher.IsMatch(input))
             {
-                item.IsValid = false;
-                return;
+                return false;
             }
-            else
-            {
-                item.SellIn = output;
-            }
-            string nameString = "";
-            for(int i = 0; i < words.Length-3; i++)
-            {
-                nameString += words[i] + ' ';
-            }
-            nameString += words[words.Length - 3];
+            return true;
+        }
 
-            item.Name = nameString;
+        private static string ExtractName(string input)
+        {
+            string pattern = @"([a-zA-Z]+\s)";
+            var matcher = new Regex(pattern);
+
+            var matches = matcher.Matches(input);
+            string name = "";
+            foreach (var x in matches)
+            {
+                name += x.ToString();
+            }
+            name = name.Trim();
+            return name;
+        }
+
+        private static int ExtractSellin(string input)
+        {
+            string pattern = @"[+-]?\d+\s";
+            var matcher = new Regex(pattern);
+
+            var matches = matcher.Matches(input);
+
+            return int.Parse(matches[0].Value.Trim());
+        }
+
+        private static int ExtractQuality(string input)
+        {
+            string pattern = @"\d+$";
+            var matcher = new Regex(pattern);
+
+            var matches = matcher.Matches(input);
+
+            return int.Parse(matches[0].Value);
         }
 
         public static string ToRecord(this StockItem item)

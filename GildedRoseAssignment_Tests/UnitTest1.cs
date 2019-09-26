@@ -47,6 +47,7 @@ namespace UnitTests
 
             var updater = MakeTransformer();
             updater.Execute();
+
             List<string> writtenlines = new List<string>();
             using (var reader = new System.IO.StreamReader(DataAccessFactory.OutputFileName))
             {
