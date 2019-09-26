@@ -6,6 +6,10 @@ namespace GildedRoseAssignment
 {
     public static class StockItemTransformFactory
     {
+        private const int AgedBrieRate = -1;
+        private const int ConjuredRate = 2;
+        private const int NormalRate = 1;
+
         public static IStockItemTransform CreateTransform(StockItem item)
         {
             IStockItemTransform transform;
@@ -16,11 +20,11 @@ namespace GildedRoseAssignment
             }
             else if (item.Name.Equals("Aged Brie"))
             {
-                transform = new NormalTransform(-1);
+                transform = new NormalTransform(AgedBrieRate);
             }
             else if (item.Name.Equals("Conjured"))
             {
-                transform = new NormalTransform(2);
+                transform = new NormalTransform(ConjuredRate);
             }
             else if (item.Name.Equals("Backstage passes"))
             {
@@ -32,7 +36,7 @@ namespace GildedRoseAssignment
             }
             else
             {
-                transform = new NormalTransform(1);
+                transform = new NormalTransform(NormalRate);
             }
             return transform;
         }
