@@ -4,7 +4,7 @@ using GildedRoseAssignment;
 
 namespace UnitTests
 {
-    public class StockQualityTransformer_Tests
+    public class DailyStockUpdaterTests
     {
         public DailyStockUpdater MakeTransformer()
         {
