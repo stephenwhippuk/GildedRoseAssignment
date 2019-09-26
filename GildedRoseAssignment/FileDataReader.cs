@@ -28,12 +28,17 @@ namespace GildedRoseAssignment
                 while (!reader.EndOfStream)
                 {
                     var item = new StockItem();
-                    item.FromRecord(reader.ReadLine());
+                    string line = reader.ReadLine();
+                    item.FromRecord(line);
 
                     // only add if a valid record, thus making system datafile error tolerant
                     if (item.IsValid)
                     {
                         data.Add(item);
+                    }
+                    else
+                    {
+                        ErrorLogger.LogError("INVALID RECORD FORMAT: \"" + line + "\"", 1);
                     }
                     readCount++;
                 }
