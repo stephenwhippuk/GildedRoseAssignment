@@ -43,12 +43,13 @@ As in a real system the data is probably not going to be issolated but rather be
 involved in this test are hidden behind the IDataReader and IDataWriter, maintaining proper SOLID design.
 
 Of particular note, StockItem is the basic datastructure for the system and is maintained as a pure datastructure containing 
-[string Name,
+[bool isValid, 
+string Name,
 int Sellin,
 StockQuality quality]
 
-StockQuality wraps a single integer and provides a couple of static methods to test and apply a constraint upon its value when requested
-The values of these constraints are provided as static properties that have a defualt value but for flexibility could be configured by a client
+StockQuality wraps a single integer and provides a couple of static methods to test and apply a constraint upon its value when requested.
+The values of these constraints are provided as static properties that have a default value but for flexibility could be configured by a client
 
 The reading and writing of data into StockItems from strings is provided by Extension Methods in Extensions.cs. This keeps StockItem a pure datastructure whilst syntactically allowing these obvious operations to be provided and give a further area of flexibility. The format and contents of the strings are processed using Regular Expressions. If the Format is wrong the record is noted in the read count and logged as an error but is not added into the list and thus will be omited from further processing.   
 
