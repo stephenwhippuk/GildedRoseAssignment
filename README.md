@@ -39,7 +39,7 @@ write the data.
 It also makes use of an ErrorLogger static class which currently just writes to the console but provides a source of flexibility to a more
 detailed logging system 
 
-As in a real system the data is probably not going to be issolated but rather be part of a full POS database the streameaders/streamwriters 
+As in a real system the data is probably not going to be issolated but rather be part of a full POS database the streamreaders/streamwriters 
 involved in this test are hidden behind the IDataReader and IDataWriter, maintaining proper SOLID design.
 
 Of particular note, StockItem is the basic datastructure for the system and is maintained as a pure datastructure containing 
