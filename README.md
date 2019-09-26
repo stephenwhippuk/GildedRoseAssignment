@@ -48,6 +48,10 @@ write the data.
 It also makes use of an *ErrorLogger* static class which currently just writes to the console but provides a source of flexibility to a more
 detailed logging system 
 
+The *DailyStockUpdater* maintains a count for records read and write count for record written. 
+
+#### Data Handling within The API
+
 As in a real system the data is probably not going to be issolated but rather be part of a full POS database the streamreaders/streamwriters 
 involved in this test are hidden behind the *IDataReader* and *IDataWriter*, maintaining proper SOLID design.
 
@@ -69,6 +73,6 @@ syntactically allowing these obvious operations to be provided and give a furthe
 Regular Expressions. If the Format is wrong the record is noted in the read count and logged as an error but is not added into the list and thus will be omited from 
 further processing.   
 
-The *DailyStockUpdater* maintains a count for records read and write count for record written. 
+
 
 
