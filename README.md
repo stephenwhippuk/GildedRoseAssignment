@@ -1,6 +1,6 @@
 # GildedRoseAssignment
 
-This project was completed as part of a Technoical Assessment. And provides an implementation of a modified Gilded Rose Kata.
+This project was completed as part of a Technical Assessment. And provides an implementation of a modified Gilded Rose Kata.
 
 It is Provided as Visual Studio Solution (VS2019) containing 3 projects
 
